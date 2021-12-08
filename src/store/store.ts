@@ -1,9 +1,10 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import {foodAPI} from "../services/foodAPI";
-
+import basketReducer from './reducers/basketSlice'
 
 const rootReducer = combineReducers({
     [foodAPI.reducerPath]: foodAPI.reducer,
+    basket: basketReducer
 });
 
 export const setupStore = () => {

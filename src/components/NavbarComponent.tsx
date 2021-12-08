@@ -1,9 +1,12 @@
 import React, {FC, useState} from 'react';
-import {Button, Container, Form, FormControl, Nav, Navbar, NavDropdown} from "react-bootstrap";
-import {Link, NavLink, useNavigate} from "react-router-dom";
+import {Badge, Button, Container, Form, FormControl, Nav, Navbar, NavDropdown} from "react-bootstrap";
+import {Link, useNavigate} from "react-router-dom";
+import {useAppSelector} from "../hooks/redux";
+import '../App.css'
 
 const NavbarComponent: FC = () => {
     const [title, setTitle] = useState('');
+    const {basket} = useAppSelector(state => state.basket);
     const navigate = useNavigate();
 
     const handleSearch: React.MouseEventHandler<HTMLButtonElement> = () => {
@@ -25,7 +28,13 @@ const NavbarComponent: FC = () => {
                             navbarScroll
                         >
                             <Nav.Link as={Link} to={'/'}>Home</Nav.Link>
-                            <Nav.Link as={Link} to={'/cart'}>Basket</Nav.Link>
+
+                                <Nav.Link as={Link} to={'/cart'}>
+                                   <span className={'badge_con'}>
+                                       Basket
+                                       <Badge  pill className={'badge'} bg="warning" text="light">9</Badge>
+                                   </span>
+                                </Nav.Link>
                             <NavDropdown title="Countries" id="navbarScrollingDropdown">
                                 <NavDropdown.Item >Action</NavDropdown.Item>
                             </NavDropdown>

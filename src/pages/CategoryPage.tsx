@@ -9,10 +9,10 @@ const CategoryPage: FC = () => {
     console.log(data)
     return (
         <>
-            <div className={'d-flex justify-content-md-center gap-2 justify-content-around flex-wrap'}>
+            <div className={'mt-5 d-flex justify-content-md-center gap-4 justify-content-around flex-wrap'}>
                 {
                     data && data.meals.map(item => (
-                        <MealCardComponent key={item.idMeal} {...item}/>
+                        <MealCardComponent key={item.idMeal} meal={item}/>
                     ))
                 }
             </div>
