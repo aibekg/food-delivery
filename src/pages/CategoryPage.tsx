@@ -5,7 +5,7 @@ import MealCardComponent from "../components/MealCardComponent";
 import Loader from "../utils/Spinner";
 
 const CategoryPage: FC = () => {
-    const {title} =  useParams();
+    const {title} = useParams();
     const {data, isLoading} = foodAPI.endpoints.getMealsByCategory.useQuery(title);
     return isLoading ? <Loader/> : (
         <>

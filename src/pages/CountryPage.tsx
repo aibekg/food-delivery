@@ -11,9 +11,7 @@ const CountryPage: FC = () => {
         <>
             <div className={'mt-5 d-flex justify-content-md-center gap-4 justify-content-around flex-wrap'}>
                 {
-                    data && data.meals.map(item => (
-                        <MealCardComponent key={item.idMeal} meal={item}/>
-                    ))
+                    data && data.meals.map(item => <MealCardComponent key={item.idMeal} meal={item}/>)
                 }
             </div>
         </>

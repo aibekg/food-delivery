@@ -5,7 +5,7 @@ import {ICategory} from "../models/ICategory";
 import {Link} from "react-router-dom";
 
 
-const CategoryCardComponent: FC <ICategory>  = ({strCategory, strCategoryThumb}) => {
+const CategoryCardComponent: FC<ICategory> = ({strCategory, strCategoryThumb}) => {
     return (
         <>
             <Card as={Link} to={`category/${strCategory}`} className={'category_card'}>

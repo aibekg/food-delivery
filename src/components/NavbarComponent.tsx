@@ -4,6 +4,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {useAppSelector} from "../hooks/redux";
 import '../App.css'
 import {foodAPI} from "../services/foodAPI";
+import {GiMeal} from "react-icons/all";
 
 const NavbarComponent: FC = () => {
     const [title, setTitle] = useState('');
@@ -12,7 +13,8 @@ const NavbarComponent: FC = () => {
     const navigate = useNavigate();
 
     const handleSearch: React.MouseEventHandler<HTMLButtonElement> = () => {
-        if(title) navigate(`/search/${title}`)
+        if (title) navigate(`/search/${title}`);
+        setTitle('')
     }
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value)
@@ -21,26 +23,30 @@ const NavbarComponent: FC = () => {
         <>
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand as={Link} to={'/'}>Food-delivery</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="navbarScroll" />
+                    <Navbar.Brand as={Link} to={'/'}>
+                        Food<span className={'text-warning'}> - </span>Delivery <GiMeal color={'#fb5f00'}/>
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="navbarScroll"/>
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
                             className="me-auto my-2 my-lg-0"
-                            style={{ maxHeight: '100px' }}
+                            style={{maxHeight: '100px'}}
                             navbarScroll
                         >
                             <Nav.Link as={Link} to={'/'}>Home</Nav.Link>
 
-                                <Nav.Link as={Link} to={'/cart'}>
+                            <Nav.Link as={Link} to={'/cart'}>
                                    <span className={'badge_con'}>
                                        Basket
-                                       <Badge  pill className={'badge'} bg="warning" text="light">{basket.length}</Badge>
+                                       <Badge pill className={'badge'} bg="warning" text="light">{basket.length}</Badge>
                                    </span>
-                                </Nav.Link>
+                            </Nav.Link>
                             <NavDropdown title="Countries" id="navbarScrollingDropdown" style={{maxHeight: 400}}>
                                 {
                                     data && data.meals.map((item, index) => (
-                                        <NavDropdown.Item key={index} as={Link} to={`/country/${item.strArea}`}>{item.strArea}</NavDropdown.Item>
+                                        <NavDropdown.Item key={index} as={Link} to={`/country/${item.strArea}`}>
+                                            {item.strArea}
+                                        </NavDropdown.Item>
                                     ))
                                 }
                             </NavDropdown>

@@ -4,7 +4,7 @@ import {Spinner} from "react-bootstrap";
 const Loader = () => {
     return (
         <div className={'loading_block'}>
-            <Spinner className={'spinner'} animation="border" variant="danger" />
+            <Spinner className={'spinner'} animation="border" variant="danger"/>
         </div>
     );
 };
