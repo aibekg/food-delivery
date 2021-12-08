@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom";
 import {foodAPI} from "../services/foodAPI";
 import MealCardComponent from "../components/MealCardComponent";
 
-const CategoryPage: FC = () => {
+const CountryPage: FC = () => {
     const {title} =  useParams();
     console.log(title)
     const {data} = foodAPI.endpoints.getMealsByArea.useQuery(title);
@@ -21,4 +21,4 @@ const CategoryPage: FC = () => {
     );
 };
 
-export default CategoryPage;
+export default CountryPage;
