@@ -14,7 +14,7 @@ const App: FC = () => {
             <Routes>
                 <Route path={'/'} element={<HomePage/>}/>
                 <Route path={'/category/:title'} element={<CategoryPage/>}/>
-                <Route path={'/country/:tile'} element={<CountryPage/>}/>
+                <Route path={'/country/:title'} element={<CountryPage/>}/>
                 <Route path={'/details/:id'} element={<DetailsPage/>}/>
                 <Route path={'/search/:text'} element={<SearchPage/>}/>
             </Routes>

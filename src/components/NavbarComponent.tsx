@@ -3,10 +3,12 @@ import {Badge, Button, Container, Form, FormControl, Nav, Navbar, NavDropdown} f
 import {Link, useNavigate} from "react-router-dom";
 import {useAppSelector} from "../hooks/redux";
 import '../App.css'
+import {foodAPI} from "../services/foodAPI";
 
 const NavbarComponent: FC = () => {
     const [title, setTitle] = useState('');
     const {basket} = useAppSelector(state => state.basket);
+    const {data} = foodAPI.endpoints.getAreaList.useQuery('');
     const navigate = useNavigate();
 
     const handleSearch: React.MouseEventHandler<HTMLButtonElement> = () => {
@@ -32,11 +34,15 @@ const NavbarComponent: FC = () => {
                                 <Nav.Link as={Link} to={'/cart'}>
                                    <span className={'badge_con'}>
                                        Basket
-                                       <Badge  pill className={'badge'} bg="warning" text="light">9</Badge>
+                                       <Badge  pill className={'badge'} bg="warning" text="light">{basket.length}</Badge>
                                    </span>
                                 </Nav.Link>
-                            <NavDropdown title="Countries" id="navbarScrollingDropdown">
-                                <NavDropdown.Item >Action</NavDropdown.Item>
+                            <NavDropdown title="Countries" id="navbarScrollingDropdown" style={{maxHeight: 400}}>
+                                {
+                                    data && data.meals.map(item => (
+                                        <NavDropdown.Item as={Link} to={`/country/${item.strArea}`}>{item.strArea}</NavDropdown.Item>
+                                    ))
+                                }
                             </NavDropdown>
                         </Nav>
                         <Form className="d-flex">
