@@ -39,8 +39,8 @@ const NavbarComponent: FC = () => {
                                 </Nav.Link>
                             <NavDropdown title="Countries" id="navbarScrollingDropdown" style={{maxHeight: 400}}>
                                 {
-                                    data && data.meals.map(item => (
-                                        <NavDropdown.Item as={Link} to={`/country/${item.strArea}`}>{item.strArea}</NavDropdown.Item>
+                                    data && data.meals.map((item, index) => (
+                                        <NavDropdown.Item key={index} as={Link} to={`/country/${item.strArea}`}>{item.strArea}</NavDropdown.Item>
                                     ))
                                 }
                             </NavDropdown>

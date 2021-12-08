@@ -6,7 +6,6 @@ import Loader from "../utils/Spinner";
 
 const CountryPage: FC = () => {
     const {title} =  useParams();
-    console.log(title)
     const {data, isLoading} = foodAPI.endpoints.getMealsByArea.useQuery(title);
     return isLoading ? <Loader/>  : (
         <>

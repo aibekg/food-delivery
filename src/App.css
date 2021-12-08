@@ -75,3 +75,10 @@ body {
     width: 50px!important;
     height: 50px!important;
 }
+.details_image{
+    width: 100%;
+    height: 400px;
+    background-position: center;
+    background-size: cover;
+    border: 10px groove #b75f00;
+}
