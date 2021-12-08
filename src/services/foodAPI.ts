@@ -40,9 +40,17 @@ export const foodAPI = createApi({
         }),
         getMealDetailsByID: build.query<IDetails, string | undefined>({
             query: (id) => ({
-                url: 'lookup.php',
+                url: '/lookup.php',
                 params: {
                     i: id
+                }
+            })
+        }),
+        getMealsByTitle: build.query<IDetails, string | undefined>({
+            query: (text) => ({
+                url: '/search.php',
+                params: {
+                    s: text
                 }
             })
         })
