@@ -66,3 +66,12 @@ body {
 .badge_con{
     position: relative;
 }
+.loading_block {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+.spinner{
+    width: 50px!important;
+    height: 50px!important;
+}
