@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {Card, Container, Spinner} from "react-bootstrap";
+import {Card, Container} from "react-bootstrap";
 import {foodAPI} from "../services/foodAPI";
 import CategoryCardComponent from "../components/CategoryCardComponent";
 import Loader from "../utils/Spinner";

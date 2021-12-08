@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Button, Modal, FormGroup, FormControl, FormLabel, Form, FormCheck} from "react-bootstrap";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
-import {removeMealsInBasket, SetBasket, setCheckoutModal} from "../store/reducers/basketSlice";
+import {removeMealsInBasket, setCheckoutModal} from "../store/reducers/basketSlice";
 import axios from "axios";
 import {successMessage} from "./messages";
 import {useNavigate} from "react-router-dom";
